@@ -1,0 +1,129 @@
+/*
+Theme Name: undesign
+Theme URI: http://www.matt-yetter.com/coding/undesign
+Description: A minimal theme for a personal web site.
+Author: Matt Yetter
+Author URI: http://www.matt-yetter.com
+Version: 1.0
+
+License:
+License URI:
+
+many thanks to exljbris for his 'museo slab 500' and 'museo sans 500' fonts
+License URL: http://www.fontspring.com/fflicense/exljbris
+
+and to fontsquirrel for the 'trykker regular' font
+License URL: http://www.fontsquirrel.com/license/trykker
+
+kuler palette 'sweet street dessert':
+	light pinkish: 	#F1E6D4
+	red: 			#BA3D49
+	crimson: 		#791F33
+	dark gray:		#9F9694
+	light gray:		#E3E1DC
+*/
+
+/* webfonts */
+@font-face {
+    font-family: 'MuseoSlab500Regular';
+    src: url('css/fonts/museo_slab_500/Museo_Slab_500-webfont.eot');
+    src: url('css/fonts/museo_slab_500/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/fonts/museo_slab_500/Museo_Slab_500-webfont.woff') format('woff'),
+         url('css/fonts/museo_slab_500/Museo_Slab_500-webfont.ttf') format('truetype'),
+         url('css/fonts/museo_slab_500/Museo_Slab_500-webfont.svg#MuseoSlab500Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MuseoSans500Regular';
+    src: url('css/fonts/museo_sans_500/MuseoSans_500-webfont.eot');
+    src: url('css/fonts/museo_sans_500/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/fonts/museo_sans_500/MuseoSans_500-webfont.woff') format('woff'),
+         url('css/fonts/museo_sans_500/MuseoSans_500-webfont.ttf') format('truetype'),
+         url('css/fonts/museo_sans_500/MuseoSans_500-webfont.svg#MuseoSans500Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TrykkerRegular';
+    src: url('css/fonts/trykker/Trykker-Regular-webfont.eot');
+    src: url('css/fonts/trykker/Trykker-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/fonts/trykker/Trykker-Regular-webfont.woff') format('woff'),
+         url('css/fonts/trykker/Trykker-Regular-webfont.ttf') format('truetype'),
+         url('css/fonts/trykker/Trykker-Regular-webfont.svg#TrykkerRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* general */
+body {
+	background-color: #F1E6D4;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: #791F33;
+}
+
+a:hover {
+	color: #BA3D49;
+}
+
+a.secret, a.secret:hover {
+	text-decoration: none;
+	color: #9F9694;
+}
+
+h1, h2, h3 {
+	font-size: 20px;
+	font-family: 'TrykkerRegular', Garamond, serif;
+}
+
+p {
+	font-family: Arial, sans-serif;
+}
+
+/* sidebar */
+#sidebar {
+	border-right: 2px solid #9F9694;
+}
+
+#site-title {
+	color: black;
+}
+
+#about {
+	padding: 0px;
+	margin: 0px 0px 9px 25px;
+}
+
+#about img {
+	float: left;
+	margin-right: 12px;
+}
+
+#about p {
+	color: #9F9694;
+	padding-right: 10px;
+}
+
+#siteinfo {
+	color: #9F9694;
+}
+
+/* main content area */
+#content ul.post-categories {
+	display: none;
+}
+
+#content img {
+	float: left;
+	margin-right: 12px;
+}
