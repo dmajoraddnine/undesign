@@ -2,7 +2,7 @@
 /**
  * index.php
  *
- * main page of the site.  grabs relevant template files and runs the wordpress loop.
+ * main page of the site.  grabs header/sidebar/footer template files and runs the wordpress loop looking for blog posts.
  *
  * undesign theme by Matt Yetter (http://www.matt-yetter.com)
  * many thanks to the wordpress folks for their great documentation and examples
@@ -15,23 +15,26 @@
 	<?php if( have_posts() ):
 		while( have_posts() ): //begin WP Loop
 			the_post(); //initialize post to allow use of tag templates
-			if( get_the_category() != 'uncategorized' ): ?>
-				<h2 id="post-<?php the_ID(); ?>">
+			$cat = get_the_category();
+			if( $cat != 'uncategorized' ): ?>
+				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</h2>
+					<?php edit_post_link( 'Edit Post', ' | ' ); //adds link to edit post if logged in ?>
+				</h3>
 				<div class="entry">
 					<?php the_content( 'Read More' ); ?>
 				</div>
-				<p class="postmetadata">
-					Posted in <?php the_category( ', ' ) ?>
-					on <?php the_time('F jS, Y') ?>
-					<strong>|</strong>
-					<?php edit_post_link( 'Edit',' ','<strong> | </strong>' ); ?>  
-					<?php comments_popup_link( 'No Comments', '1 Comment', '% Comments' ); ?>
-				</p>
-				<!--
-					<?php trackback_rdf(); ?>
-				-->
+				<?php if( comments_open() ): //check if comments are allowed on this post ?>
+					<p class="postmetadata">
+						Posted in <?php the_category( ', ' ) ?>
+						on <?php the_time('F jS, Y') ?>
+						<strong>|</strong>
+						<?php comments_popup_link( 'No Comments', '1 Comment', '% Comments' ); ?>
+					</p>
+					<!--
+						<?php trackback_rdf(); ?>
+					-->
+				<?php endif; ?>
 			<?php endif; ?>
 		<?php endwhile; //end WP Loop ?>
 		
