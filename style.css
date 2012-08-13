@@ -36,8 +36,11 @@ kuler palette 'sweet street dessert':
 /* general */
 body {
 	background-color: #F1E6D4;
-	padding-top: 20px;
-	padding-bottom: 20px;
+}
+
+#container {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 ul {
@@ -67,9 +70,22 @@ p {
 	font-family: Arial, sans-serif;
 }
 
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
 /* sidebar */
 #site-title {
 	color: #333333;
+}
+
+#sidebar {
+	padding-right: 20px;
+	margin-right: 0px;
 }
 
 #sidebar li {
@@ -103,7 +119,12 @@ a.secret, a.secret:hover {
 /* main content area */
 #content {
 	padding-left: 20px;
-	border-left: 2px solid #9F9694;
+	margin-left: 0px;
+	margin-bottom: 30px;
+}
+
+#content h3 {
+	margin-bottom: 9px;
 }
 
 #content ul.post-categories {
@@ -116,7 +137,7 @@ a.secret, a.secret:hover {
 }
 
 #content iframe {
-	margin-bottom: 10px;
+	margin-bottom: 9px;
 	background-color: #791F33;
 }
 
@@ -124,16 +145,15 @@ a.secret, a.secret:hover {
 	font-size: 13px;
 }
 
-.entry {
-	margin-bottom: 10px;
-}
-
 .post-excerpt {
 	line-height: 27px;
 }
 
-/* browser specific hax */
-/* firefox */
-@-moz-document url-prefix() {
+.post-link, .postWrapper, .entry, .postmetadata {
+	padding-left: 20px;
+}
 
+.post-nav {
+	font-size: 15px;
+	line-height: 18px;
 }

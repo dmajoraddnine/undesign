@@ -1,8 +1,9 @@
 <?php
 /**
- * index.php
+ * category-blog.php
  *
- * main page of the site.  grabs header/sidebar/footer template files and runs the wordpress loop looking for blog posts.
+ * page displaying blog posts.  different from other categories because full text of post should be displayed
+ * rather than just the excerpt
  *
  * undesign theme by Matt Yetter (http://www.matt-yetter.com)
  * many thanks to the wordpress folks for their great documentation and examples
@@ -13,11 +14,10 @@
 
 <div id="content" class="span8" role="main">
 	<?php if( have_posts() ): ?>
-		<h2>welcome</h2>
-		<?php while( have_posts() ): //begin WP Loop
-			the_post(); //initialize post to allow use of tag templates
-			$cats = get_the_category(); //returns array, but each post should only have a subcategory, not top-level (except blog)
-			if( $cats[0]->name != 'uncategorized' ): ?>
+		<div id="postlist">
+			<h2>blog</h2>
+			<?php while( have_posts() ): //begin WP Loop
+				the_post(); //initialize post to allow use of tag templates ?>
 				<div class="postWrapper">
 					<h3 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
@@ -35,8 +35,8 @@
 						<?php trackback_rdf(); ?>
 					-->
 				</div>
-			<?php endif; ?>
-		<?php endwhile; //end WP Loop ?>
+			<?php endwhile; //end WP Loop ?>
+		</div>
 		
 		<div class="post-nav">
 			<div class="alignleft"><?php previous_posts_link('&laquo; Newer'); ?></div>

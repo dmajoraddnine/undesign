@@ -15,6 +15,7 @@ function add_undesign_js()
 	{
 		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), false, true );
 		wp_enqueue_script( 'undesign', get_template_directory_uri() . '/js/script.js', array( 'jquery', 'bootstrap' ), false, true );
+		wp_enqueue_script( 'analytics', get_template_directory_uri() . '/js/google-analytics.js', array(), false, false );
 	}
 }
 add_action( 'init', 'add_undesign_js' );

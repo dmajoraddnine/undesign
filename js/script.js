@@ -1,11 +1,17 @@
 jQuery( function( $ ) { //pass the $ variable to avoid jquery conflicts
-	$( document ).ready( function( $ ) {
+	$( document ).ready( function() {
+		//dynamically add border divider based on height of content
+		if( $( '#content' ).height() < 500 ) {
+			$( '#sidebar' ).css( 'border-right', '2px solid #9F9694' );
+		} else {
+			$( '#content' ).css( 'border-left', '2px solid #9F9694' );
+		}
 	
 		//show/hide the login form when (c) link is clicked
 		$( '.secret' ).click( function( e ) {
 			$( '#logininfo' ).toggle();
 			e.preventDefault();
-		})
+		});
 		
 		//attach autoResize function to minesweeper settings form
 		$c = $( '#minesweeper-frame' ).contents();
