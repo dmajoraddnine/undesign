@@ -21,27 +21,27 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 	<head>
-		<!--le meta info-->
+		<!-- meta info -->
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-		
+
 		<?php
-			/* We add some JavaScript to pages with the comment form
+			/**
+			* We add some JavaScript to pages with the comment form
 			* to support sites with threaded comments (when in use).
 			*/
-			if( is_singular() && get_option( 'thread_comments' ) )
-			{
-				wp_enqueue_script( 'comment-reply' );
+			if(is_singular() && get_option('thread_comments')) {
+				wp_enqueue_script('comment-reply');
 			}
 
-			wp_head(); //head hook for plugins
+			wp_head(); // head hook for plugins
 		?>
 		<script type="text/javascript">
-			document.domain = "matt-yetter.com"; //to allow iframe manipulations
+			document.domain = "<?= $_SERVER['HTTP_HOST']; ?>"; // to allow iframe manipulations
 		</script>
 	</head>
-	
-	<body <?php body_class(); ?>> <!--closed in footer-->
-		<div id="container"> <!--closed in footer-->
+
+	<body <?php body_class(); ?>> <?php // closed in footer ?>
+		<div class="container-fluid"> <?php // closed in footer ?>
