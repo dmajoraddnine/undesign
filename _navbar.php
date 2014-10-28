@@ -59,7 +59,6 @@ foreach ($nav_tree as $parent_item) {
     $active_category = $parent_item['name'];
   }
 }
-$active_category = 'code';
 
 // begin HTML output
 ?>

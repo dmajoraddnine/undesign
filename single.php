@@ -2,45 +2,40 @@
 /**
  * single.php
  *
- * page displaying a single post.
+ * Page displaying a single post.
  *
  * undesign theme by Matt Yetter (http://www.matt-yetter.com)
  * many thanks to the wordpress folks for their great documentation and examples
  */
+
+// WP function - load page header
+get_header();
+
+// custom function - load navbar (top-level category list)
+get_template_part('_navbar');
+
 ?>
-<?php get_header(); ?>
-<?php get_sidebar(); ?>
+<div class="row-fluid" id="content-row">
+  <div id="main-col" class="span8" role="main"><?php
 
-<div id="content" class="span8" role="main">
-	<?php if( have_posts() ):
-		while( have_posts() ): //begin WP Loop
-			the_post(); //initialize post to allow use of tag templates
-			$cats = get_the_category(); //returns array, but each post should only have a subcategory, not top-level (except blog)
-			if( $cats[0]->name != 'uncategorized' ): ?> 
-				<h3 id="post-<?php the_ID(); ?>">
-					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-					<?php edit_post_link( 'Edit Post', ' | ' ); //adds link to edit post if logged in ?>
-				</h3>
-				<div class="entry">
-					<?php the_content( 'Read More' ); ?>
-				</div>
-				<p class="postmetadata">
-					Posted by <?php the_author(); ?> in <?php the_category( ', ' ); ?>
-					on <?php the_time('F jS, Y') ?>
-					<?php //maybe add this back later: <strong>|</strong> comments_popup_link( 'No Comments', '1 Comment', '% Comments' ); ?>
-				</p>
-				<!--
-					<?php trackback_rdf(); ?>
-				-->
-			<?php endif;
-		endwhile; //end WP Loop ?>
-		
-	<?php else : ?>
-		<h2 class="center">Not Found</h2>
-		<p class="center">
-			<?php _e( "Sorry, but you are looking for something that isn't here." ); ?>
-		</p>
-	<?php endif; ?>
-</div>
+if (have_posts()) {
+  // custom function - run the WP Loop (display post[s])
+  get_template_part('_loop');
 
-<?php get_footer(); ?>
+  // If comments are open, load up the comment template.
+  if (comments_open()) {
+    comments_template();
+  }
+} else { ?>
+      <h2 class="center">Not Found</h2>
+      <p class="center">
+        Sorry, but you're looking for something that isn't here.
+      </p><?php
+} // end check for posts ?>
+  </div><?php
+
+// WP function - load page sidebar
+get_sidebar();
+
+// WP function - load footer
+get_footer(); ?>
